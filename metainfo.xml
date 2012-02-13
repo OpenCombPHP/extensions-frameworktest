@@ -1,0 +1,14 @@
+<Extension>
+
+	<name>frameworktest</name>
+	<version>0.1</version>
+	<title>测试工具</title>
+	
+	<package folder="/class" namespace="org.opencomb.frameworktest" >
+		</package>
+	
+	<class>org.opencomb.frameworktest.FrameworkTest</class>
+	
+	<template folder="/template" />
+	
+</Extension>
