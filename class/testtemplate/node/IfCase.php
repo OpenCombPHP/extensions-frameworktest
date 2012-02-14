@@ -1,5 +1,5 @@
 <?php
-namespace org\opencomb\frameworktest\ui\xhtml\compiler\node;
+namespace org\opencomb\frameworktest\testtemplate\node;
 
 use org\jecat\framework\verifier\Length;
 
@@ -85,7 +85,7 @@ class IfCase extends ControlPanel
 	{
 		$arrBean = array(
 			'view:ifCase' => array(
-				'template' => 'IfCase.html' ,
+				'template' => 'test-template/node/IfCase.html' ,
 			)
 		) ;
 		return $arrBean;

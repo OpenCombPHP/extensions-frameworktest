@@ -1,5 +1,5 @@
 <?php
-namespace org\opencomb\frameworktest\ui\xhtml\compiler\node;
+namespace org\opencomb\frameworktest\testtemplate\node;
 
 use org\jecat\framework\verifier\Length;
 
@@ -43,7 +43,7 @@ class ForeachElseCase extends ControlPanel
 	{
 		$arrBean = array(
 			'view:foreachElseCase' => array(
-				'template' => 'ForeachElseCase.html' ,
+				'template' => 'test-template/node/ForeachElseCase.html' ,
 			)
 		) ;
 		return $arrBean;

@@ -1,5 +1,5 @@
 <?php
-namespace org\opencomb\frameworktest\ui\xhtml\compiler\node;
+namespace org\opencomb\frameworktest\testtemplate\node;
 
 use org\jecat\framework\verifier\Length;
 
@@ -53,7 +53,7 @@ class LoopCase extends ControlPanel
 	{
 		$arrBean = array(
 			'view:loopCase' => array(
-				'template' => 'LoopCase.html' ,
+				'template' => 'test-template/node/LoopCase.html' ,
 			)
 		) ;
 		return $arrBean;
