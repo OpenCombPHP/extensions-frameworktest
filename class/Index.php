@@ -40,7 +40,6 @@ use org\jecat\framework\message\Message;
  *	Insert
  *	Update
  *	Delete 删除
- *	数据库调试
  * 	数据库反射
  *
  * 模板引擎
@@ -54,12 +53,11 @@ use org\jecat\framework\message\Message;
  * MVC模式
  * 	数据库模型
  * 		模型的基本操作(新建、保存、删除、加载、克隆)
- * 		模型加载的高级条件
+ * 			模型加载的高级条件
  * 		模型列表(ModelList)
  * 			列表中新增模型
  * 		数据表关联(hasOne,hasMany,belongsTo,hasAndBelongsToMany)
  * 		不用Bean构建模型
- * 		模型的原型(Prototype/Association)
  * 	视图
  * 		视图的基本操作(显示、变量、预定义变量)
  * 		模板标签
@@ -75,7 +73,7 @@ use org\jecat\framework\message\Message;
  * 		菜单控件
  * 	控制器
  * 		控制器的基本操作（执行、成员及其访问规则）
- * 		控制器 Action 机制
+ * 			控制器 Action 机制
  * 		请求-回应(request-response)
  * 			Ajax请求
  * 		控制器组合
@@ -105,7 +103,7 @@ use org\jecat\framework\message\Message;
 class Index extends ControlPanel
 {
 	public function createBeanConfig()
-	{
+	{		
 		$arrBean = array(
 			'view:advertisementSetting' => array(
 					'template' => 'Index.html' ,
