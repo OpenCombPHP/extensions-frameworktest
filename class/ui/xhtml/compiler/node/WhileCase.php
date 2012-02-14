@@ -15,7 +15,7 @@ use org\opencomb\advertisement\Advertisement;
  *  !标签
  *  !功能
  *  |---
- *  |<break>
+ *  |<while>
  *  |退出当前循环
  *  |---
  *  !测试目的
@@ -24,26 +24,38 @@ use org\opencomb\advertisement\Advertisement;
  *  !实际结果
  *  !说明
  *  |---
- *  |break终止循环
- *  |<break />
- *  |显示"第一次循环"
- *  |显示"第一次循环"
+ *  |while判断条件为true时情况
+ *  |<while '$i<6' >{=$i++}</while>
+ *  |显示"12345"
+ *  |显示"12345"
  *  | 
+ *  |---
+ *  |while判断条件为false时情况
+ *  |<while false>while false</while>
+ *  |
+ *  |
+ *  | 
+ *  |---
+ *  |测试while单行函数的功能
+ *  |<while '$j<6' />{=$j++}<while:end/>
+ *  |显示"12345"
+ *  |显示"12345"
+ *  |
  *  |}
  */
 /**
  * @example /模板引擎/标签/自定义标签:name[1]
  *
- *  通过if标签编译器的代码演示如何编写一个标签编译器
+ *  
  */
 
-class BreakCase extends ControlPanel
+class WhileCase extends ControlPanel
 {
 	public function createBeanConfig()
 	{
 		$arrBean = array(
-			'view:breakCase' => array(
-				'template' => 'BreakCase.html' ,
+			'view:whileCase' => array(
+				'template' => 'WhileCase.html' ,
 			)
 		) ;
 		return $arrBean;
@@ -51,10 +63,6 @@ class BreakCase extends ControlPanel
 	
 	public function process()
 	{	
-		$arrA=array(0=>'第一次循环',1=>'第二次循环',2=>'第三次循环',3=>'第四次循环');
-		$sText="Break功能测试：";
-		$this->viewBreakCase->variables()->set('arrA',$arrA);
-		$this->viewBreakCase->variables()->set('sText',$sText);
-			
+		$sText="while功能测试：";
 	}
 }

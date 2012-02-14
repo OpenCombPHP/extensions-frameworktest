@@ -15,7 +15,7 @@ use org\opencomb\advertisement\Advertisement;
  *  !标签
  *  !功能
  *  |---
- *  |<break>
+ *  |<foreach>
  *  |退出当前循环
  *  |---
  *  !测试目的
@@ -24,10 +24,10 @@ use org\opencomb\advertisement\Advertisement;
  *  !实际结果
  *  !说明
  *  |---
- *  |break终止循环
- *  |<break />
- *  |显示"第一次循环"
- *  |显示"第一次循环"
+ *  |测试for为空数组时,<foreach:else/>的功能
+ *  |<foreach ><foreach:else/></foreach>
+ *  |显示"数组内无元素"
+ *  |显示"数组内无元素"
  *  | 
  *  |}
  */
@@ -37,13 +37,13 @@ use org\opencomb\advertisement\Advertisement;
  *  通过if标签编译器的代码演示如何编写一个标签编译器
  */
 
-class BreakCase extends ControlPanel
+class ForeachElseCase extends ControlPanel
 {
 	public function createBeanConfig()
 	{
 		$arrBean = array(
-			'view:breakCase' => array(
-				'template' => 'BreakCase.html' ,
+			'view:foreachElseCase' => array(
+				'template' => 'ForeachElseCase.html' ,
 			)
 		) ;
 		return $arrBean;
@@ -51,10 +51,10 @@ class BreakCase extends ControlPanel
 	
 	public function process()
 	{	
-		$arrA=array(0=>'第一次循环',1=>'第二次循环',2=>'第三次循环',3=>'第四次循环');
-		$sText="Break功能测试：";
-		$this->viewBreakCase->variables()->set('arrA',$arrA);
-		$this->viewBreakCase->variables()->set('sText',$sText);
+		$arrB=array();
+		$sText="ForeachElse功能测试：";
+		$this->viewForeachElseCase->variables()->set('arrB',$arrB);
+		$this->viewForeachElseCase->variables()->set('sText',$sText);
 			
 	}
 }

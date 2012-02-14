@@ -1,0 +1,18 @@
+{=$sText}<br/><br/>
+<if {=$bTrue}>
+	true<br/>
+</if>
+<if {=!$bFalse}>
+	false<br/>
+</if>
+<if {=$bFalse}>
+	true<br/>
+	<else/>
+	else<br/>
+</if>
+<if {=$bFalse}>
+	true<br/>
+	<elseif {=$bTrue}>
+		elseif<br/>
+	</elseif>
+</if>

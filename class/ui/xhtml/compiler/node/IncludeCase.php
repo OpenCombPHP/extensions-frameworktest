@@ -37,13 +37,13 @@ use org\opencomb\advertisement\Advertisement;
  *  通过if标签编译器的代码演示如何编写一个标签编译器
  */
 
-class BreakCase extends ControlPanel
+class IncludeCase extends ControlPanel
 {
 	public function createBeanConfig()
 	{
 		$arrBean = array(
-			'view:breakCase' => array(
-				'template' => 'BreakCase.html' ,
+			'view:includeCase' => array(
+				'template' => 'IncludeCase.html' ,
 			)
 		) ;
 		return $arrBean;
@@ -51,10 +51,8 @@ class BreakCase extends ControlPanel
 	
 	public function process()
 	{	
-		$arrA=array(0=>'第一次循环',1=>'第二次循环',2=>'第三次循环',3=>'第四次循环');
-		$sText="Break功能测试：";
-		$this->viewBreakCase->variables()->set('arrA',$arrA);
-		$this->viewBreakCase->variables()->set('sText',$sText);
+		$sText="Include功能测试：";
+		$this->viewIncludeCase->variables()->set('sText',$sText);
 			
 	}
 }

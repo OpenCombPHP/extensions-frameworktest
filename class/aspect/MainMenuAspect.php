@@ -26,8 +26,8 @@ class MainMenuAspect
 		$arrConfig = aop_call_origin() ;
 		$arrConfig['frameview:frameView']['widget:mainMenu']['items']['development']['menu']['items']['test']=array(
 																		'title' => '测试中心',
-																		'link' => '?c=org.opencomb.frameworktest.Index',
-																		'query' =>'c=org.opencomb.frameworktest.Index',);
+																		'link' => '?c=org.opencomb.frameworktest.TestIndex',
+																		'query' =>'c=org.opencomb.frameworktest.TestIndex',);
 		return $arrConfig ;
 	}
 }

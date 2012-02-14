@@ -9,13 +9,13 @@ use org\opencomb\coresystem\mvc\controller\ControlPanel;
 use org\jecat\framework\message\Message;
 
 
-class Index extends ControlPanel
+class TestIndex extends ControlPanel
 {
 	public function createBeanConfig()
 	{
 		$arrBean = array(
 			'view:advertisementSetting' => array(
-					'template' => 'Index.html' ,
+					'template' => 'TestIndex.html' ,
 					'class' => 'view' 
 					),
 		);
