@@ -27,7 +27,11 @@ class MainMenuAspect
 		$arrConfig['frameview:frameView']['widget:mainMenu']['items']['development']['menu']['items']['test']=array(
 																		'title' => '测试中心',
 																		'link' => '?c=org.opencomb.frameworktest.TestIndex',
-																		'query' =>'c=org.opencomb.frameworktest.TestIndex',);
+																		'query' => array(
+																			'c=org.opencomb.frameworktest.TestIndex',
+																			'c=org.opencomb.frameworktest.fs.TestFSIterator',
+																		)
+																	);
 		return $arrConfig ;
 	}
 }

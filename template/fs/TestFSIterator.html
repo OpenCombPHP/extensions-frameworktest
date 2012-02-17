@@ -1,0 +1,56 @@
+<style>
+h1{
+	color:red;
+	font-size:32px;
+}
+</style>
+<h1>iterator from /settings</h1>
+<h1>default iterator : FSIterator::FLAG_DEFAULT</h1>
+<ul>
+	<foreach for='$iterator' item="item">
+		<li>
+			{=$item}
+		</li>
+	</foreach>
+</ul>
+<h1>noFolderIterator : FSIterator::FLAG_DEFAULT ^ FSIterator::CONTAIN_FOLDER</h1>
+<ul>
+	<foreach for='$noFolderIterator' item="item">
+		<li>
+			{=$item}
+		</li>
+	</foreach>
+</ul>
+<h1>noFileIterator : FSIterator::FLAG_DEFAULT ^ FSIterator::CONTAIN_FILE</h1>
+<ul>
+	<foreach for='$noFileIterator' item="item">
+		<li>
+			{=$item}
+		</li>
+	</foreach>
+</ul>
+<h1>noRecursiveIterator : FSIterator::FLAG_DEFAULT ^ FSIterator::RECURSIVE_SEARCH</h1>
+<ul>
+	<foreach for='$noRecursiveIterator' item="item">
+		<li>
+			{=$item}
+		</li>
+	</foreach>
+</ul>
+<h1>returnFSOIterator : FSIterator::FLAG_DEFAULT | FSIterator::RETURN_FSO</h1>
+<ul>
+	<foreach for='$returnFSOIterator' item="item">
+		<li>
+			url : {=$item->url()}<br />
+			path : {=$item->path()}
+		</li>
+	</foreach>
+</ul>
+<h1>returnRelativeIterator : FSIterator::FLAG_DEFAULT ^ FSIterator::RETURN_ABSOLUTE_PATH</h1>
+<ul>
+	<foreach for='$returnRelativeIterator' item="item">
+		<li>
+			{=$item}
+		</li>
+	</foreach>
+</ul>
