@@ -9,13 +9,13 @@ use org\opencomb\coresystem\mvc\controller\ControlPanel;
 use org\jecat\framework\message\Message;
 use org\opencomb\advertisement\Advertisement;
 /**
- * @wiki /模板引擎/标签
+ * @wiki /模板引擎/测试标签
  *
  * {|
  *  !标签
  *  !功能
  *  |---
- *  |<foreach>
+ *  |<foreac:else>
  *  |退出当前循环
  *  |---
  *  !测试目的
@@ -32,9 +32,9 @@ use org\opencomb\advertisement\Advertisement;
  *  |}
  */
 /**
- * @example /模板引擎/标签/自定义标签:name[1]
+ * @example /模板引擎/测试标签/自定义标签:name[1]
  *
- *  通过if标签编译器的代码演示如何编写一个标签编译器
+ *  通过foreachelse标签编译器的代码演示如何编写一个标签编译器
  */
 
 class ForeachElseCase extends ControlPanel

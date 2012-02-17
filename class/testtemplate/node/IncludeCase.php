@@ -9,13 +9,13 @@ use org\opencomb\coresystem\mvc\controller\ControlPanel;
 use org\jecat\framework\message\Message;
 use org\opencomb\advertisement\Advertisement;
 /**
- * @wiki /模板引擎/标签
+ * @wiki /模板引擎/测试标签
  *
  * {|
  *  !标签
  *  !功能
  *  |---
- *  |<break>
+ *  |<include>
  *  |退出当前循环
  *  |---
  *  !测试目的
@@ -24,17 +24,22 @@ use org\opencomb\advertisement\Advertisement;
  *  !实际结果
  *  !说明
  *  |---
- *  |break终止循环
- *  |<break />
- *  |显示"第一次循环"
- *  |显示"第一次循环"
+ *  |include包含文件的功能
+ *  |<include file="frameworktest:TestIndex.html" ></include>
+ *  |显示TestIndex.html的内容
+ *  |显示TestIndex.html的内容
  *  | 
+ *  |true的属性测试以及一个扩展两个目录的测试
+ *  |<include file="advertisement:AdvertisementSetting.html" vars='true'></include>
+ *  |显示AdvertisementSetting.html的内容
+ *  |显示AdvertisementSetting.html的内容
+ *  |AdvertisementSetting.html的内容要被显示出来
  *  |}
  */
 /**
- * @example /模板引擎/标签/自定义标签:name[1]
+ * @example /模板引擎/测试标签/自定义标签:name[1]
  *
- *  通过if标签编译器的代码演示如何编写一个标签编译器
+ *  通过include标签编译器的代码演示如何编写一个标签编译器
  */
 
 class IncludeCase extends ControlPanel

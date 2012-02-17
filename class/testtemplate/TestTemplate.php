@@ -23,7 +23,6 @@ class TestTemplate extends ControlPanel
 	
 	public function process()
 	{	
-		echo "dddddd";
 		$arrAdvertisement=array();
 		$this->viewTesttemplate->variables()->set('arrAdvertisement',$arrAdvertisement);
 	}
