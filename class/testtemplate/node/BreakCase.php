@@ -1,5 +1,5 @@
 <?php
-namespace org\opencomb\frameworktest\ui\xhtml\compiler\node;
+namespace org\opencomb\frameworktest\testtemplate\node;
 
 use org\jecat\framework\verifier\Length;
 
@@ -8,8 +8,9 @@ use org\opencomb\oauth\adapter\AdapterManager;
 use org\opencomb\coresystem\mvc\controller\ControlPanel;
 use org\jecat\framework\message\Message;
 use org\opencomb\advertisement\Advertisement;
+
 /**
- * @wiki /模板引擎/标签
+ * @wiki /模板引擎/测试标签
  *
  * {|
  *  !标签
@@ -18,11 +19,13 @@ use org\opencomb\advertisement\Advertisement;
  *  |<break>
  *  |退出当前循环
  *  |---
+ *  !测试目的
  *  !操作过程
  *  !期待值
  *  !实际结果
  *  !说明
  *  |---
+ *  |break终止循环
  *  |<break />
  *  |显示"第一次循环"
  *  |显示"第一次循环"
@@ -30,9 +33,9 @@ use org\opencomb\advertisement\Advertisement;
  *  |}
  */
 /**
- * @example /模板引擎/标签/自定义标签:name[1]
+ * @example /模板引擎/测试标签/测试程序:name[1]
  *
- *  通过if标签编译器的代码演示如何编写一个标签编译器
+ *  通过break标签编译器的代码演示如何编写一个标签编译器
  */
 
 class BreakCase extends ControlPanel
@@ -41,7 +44,7 @@ class BreakCase extends ControlPanel
 	{
 		$arrBean = array(
 			'view:breakCase' => array(
-				'template' => 'BreakCase.html' ,
+				'template' => 'test-template/node/BreakCase.html' ,
 			)
 		) ;
 		return $arrBean;

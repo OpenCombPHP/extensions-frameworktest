@@ -11,4 +11,10 @@
 	
 	<template folder="/template" />
 	
+	<template folder="/template1" for="advertisement"/>
+	
+	<publicFolder folder="/public" />
+	
+	<publicFolder folder="/public1" for="advertisement"/>
+	
 </Extension>

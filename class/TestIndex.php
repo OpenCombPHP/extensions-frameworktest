@@ -100,13 +100,13 @@ use org\jecat\framework\message\Message;
  *   栈和队列
  *   正则表达式
  */
-class Index extends ControlPanel
+class TestIndex extends ControlPanel
 {
 	public function createBeanConfig()
 	{		
 		$arrBean = array(
 			'view:advertisementSetting' => array(
-					'template' => 'Index.html' ,
+					'template' => 'TestIndex.html' ,
 					'class' => 'view' 
 					),
 		);
