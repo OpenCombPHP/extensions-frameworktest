@@ -41,7 +41,7 @@ class BreakCase extends ControlPanel
 	{
 		$arrBean = array(
 			'view:breakCase' => array(
-				'template' => 'BreakCompilerCase.html' ,
+				'template' => 'BreakCase.html' ,
 			)
 		) ;
 		return $arrBean;
