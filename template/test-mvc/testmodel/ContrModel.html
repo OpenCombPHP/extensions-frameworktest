@@ -1,0 +1,16 @@
+<h2>BeanModel</h2>
+<table>
+	<tr>
+		<th>作者id</th>
+		<th>作者名字</th>
+	</tr>
+	<tbody>
+		
+		<model:foreach>
+		<tr>
+			<td>{=$theModel['aid']}</td>
+			<td>{=$theModel['author']}</td>
+		</tr>
+		</model:foreach>
+	</tbody>
+</table>

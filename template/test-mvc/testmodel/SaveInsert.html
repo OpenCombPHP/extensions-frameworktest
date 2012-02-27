@@ -1,0 +1,23 @@
+<h2>SaveInsert/SaveUpdate/Delete</h2><br/>
+<h>请输入申请的作者名<h/><br/>
+<form method="post">
+
+	作者名字:<widget id="name"/><br/>
+	<input type="submit" name="submit" value="提交"/>
+</form>
+<br/>
+<h2>点击作者名字可以对作者进行编辑(完成update的操作)</h2>
+<table>
+	<tr>
+		<th>作者id</th>
+		<th>作者名字</th>
+		<th>删除</th>
+	</tr>
+<foreach for="$Authors" key='skey1' item='itemlist'>
+	<tr>
+		<th>{=$itemlist['aid']}</th>
+		<th><a href="?c=org.opencomb.frameworktest.testmvc.testmodel.SaveUpdate&aid2={=$itemlist['aid']}">{=$itemlist['author']}</a></th>
+		<th><a href="?c=org.opencomb.frameworktest.testmvc.testmodel.DeleteModel&aid3={=$itemlist['aid']}">删除</a></th>
+	</tr>
+</foreach>
+</table>

@@ -1,0 +1,12 @@
+<h2>HasOneCase</h2><br/>
+<h>输入ID查看作者信息<h/><br/>
+<form method="post">
+
+	作者id:<widget id="aid"/><br/>
+	<input type="submit" name="submit" value="提交"/>
+
+</form>
+<br/>
+<foreach for="$hasOne" key='sKeyPath' item='arrcItemList'>
+			{=$arrcItemList}
+</foreach>

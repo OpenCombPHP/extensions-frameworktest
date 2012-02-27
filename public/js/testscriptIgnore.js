@@ -1,0 +1,1 @@
+document.write("hello 这是ignore属性为true")

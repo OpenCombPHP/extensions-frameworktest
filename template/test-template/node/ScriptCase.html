@@ -1,0 +1,31 @@
+<h2>{=$sText}</h2><br/><br/>
+
+<resrc />
+
+<br/><br/>
+<script type="text/javascript">
+	document.write("hello 这是正常标签Type")
+</script>
+
+<br/><br/>
+<script type="{=$sType}">
+	document.write("hello 这是宏Type")
+</script>
+
+<script src="frameworktest:js/testscript.js" >
+</script>
+<br/><br/>
+<script src="advertisement:js/testscript.js" >
+</script>
+
+<script src="/extensions/frameworktest/0.1/public/js/testscriptIgnore.js" ignore="true">
+</script>
+
+<script src="/extensions/frameworktest/0.1/public/js/testscriptIgnore.js" ignore="false">
+</script>
+<br/>
+<js type="{=$sType}">
+	document.write("hello 这是js标签)
+</js>
+
+

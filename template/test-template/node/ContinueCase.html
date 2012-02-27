@@ -1,0 +1,11 @@
+{=$sText}<br/><br/>
+<foreach for='$arrC' key='skey' item='sItemc' >
+{=$sItemc}
+	<foreach for='$arrA' key='skey' item='sItem' >
+		{=$sItem}
+		<foreach for='$arrB' key='skeyb' item='sItemb' >
+			<continue 3 />
+			{=$sItemb}
+		</foreach>
+	</foreach>	
+</foreach>

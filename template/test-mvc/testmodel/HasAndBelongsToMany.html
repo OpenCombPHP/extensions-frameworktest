@@ -1,0 +1,48 @@
+<h2>HasAndBelongsToManyCase</h2><br/>
+<h>输入ID查看作者作品<h/><br/>
+<form method="post">
+
+	作者id:<widget id="aid"/><br/>
+	<input type="submit" name="submit" value="提交"/>
+
+</form>
+<br/>
+作者:{=$author}
+<br/>
+主要作品:<br/>
+<foreach for="$bookModel" key='sKeyPath' item='arrcItemList'>
+		<foreach for="$arrcItemList" key='sKeyPath1' item='item'>
+			{=$item}
+		</foreach>
+		<br/>
+</foreach>
+<br/>
+<h2><a href="?c=org.opencomb.frameworktest.testmvc.testmodel.HasAndBelongsToMany&aid2={=$aid}">点击这里查看此作者全部作品书评</a></h2><br/>
+<table>
+	<tr>
+			<th>作品</th>
+			<th>书评作者</th>
+			<th>书评</th>	
+	</tr>
+	<foreach for="$comment" key='sKeyPath' item='arrcItemList'>
+	<tr>
+			<th>{=$arrcItemList['bookname']}</th>	
+			<th><a href="?c=org.opencomb.frameworktest.testmvc.testmodel.HasAndBelongsToMany&cid={=$arrcItemList['cid']}">{=$arrcItemList['username']}</a></th>
+			<th>{=$arrcItemList['comment']}</th>
+		
+	</tr>
+	</foreach>
+</table>
+<br/><br/>
+<table>
+	<tr>
+			<th>书评作者</th>
+			<th>年龄</th>
+			<th>简历</th>	
+	</tr>	
+	<tr>
+			<th>{=$arrCommentAuthor['username']}</th>
+			<th>{=$arrCommentAuthor['age']}</th>
+			<th>{=$arrCommentAuthor['info']}</th>	
+	</tr>
+</table>

@@ -1,0 +1,17 @@
+<h2>BeanModel</h2>
+<table>
+	<tr>
+		<th>类别编号</th>
+		<th>类别名称</th>
+		<th>书名</th>
+	</tr>
+	<tbody>
+	<tr>
+		<foreach for="$arrBooks" as key='key' item='item'>
+					<th>{=$item['bookname']}</th>
+					<th>{=$item['price']}</th>
+					<th>{=$item['publish']}</th>
+		</foreach>
+	</tr>
+	</tbody>
+</table>

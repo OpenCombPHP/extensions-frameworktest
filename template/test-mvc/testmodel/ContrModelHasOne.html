@@ -1,0 +1,18 @@
+<h2>BeanModel</h2>
+<table>
+	<tr>
+		<th>作者姓名</th>
+		<th>籍贯</th>
+		<th>性别</th>
+	</tr>
+	<tbody>
+		
+		<model:foreach>
+		<tr>
+			<td>{=$theModel['author']}</td>
+			<td>{=$theModel['authorinfo.jiguan']}</td>
+			<td>{=$theModel['authorinfo.sex']}</td>
+		</tr>
+		</model:foreach>
+	</tbody>
+</table>
