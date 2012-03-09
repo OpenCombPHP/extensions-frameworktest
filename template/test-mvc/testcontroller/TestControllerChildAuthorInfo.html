@@ -1,0 +1,15 @@
+<h2>子控制器作者信息</h2>
+<table>
+	<tr>
+		<th>籍贯</th>
+		<th>性别</th>
+	</tr>
+	<tbody>
+		<model:foreach>
+			<tr>
+				<td>{=$theModel['jiguan']}</td>
+				<td>{=$theModel['sex']}</td>
+			</tr>
+		</model:foreach>
+	</tbody>
+</table>

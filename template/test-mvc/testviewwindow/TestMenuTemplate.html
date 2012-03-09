@@ -1,0 +1,41 @@
+<h2>模板中自定义Menu</h2>
+<style>
+.testMenu li{
+	width:100px;
+}
+</style>
+
+<div class='testMenu'>
+	<widget new="menu">
+		<bean>
+			<title>menu</title>
+			<item-aaa>
+				<title>aaa-title</title>
+				<tearoff>true</tearoff>
+				<menu>1</menu>
+				<item-aaasub>
+					<title>aaasubtitle</title>
+					<tearoff>true</tearoff>
+					<menu>1</menu>
+					<item-aabbcc>
+						<title>aabbcc title</title>
+					</item-aabbcc>
+				</item-aaasub>
+				<item-bbbsub>
+					<title>bbbsubtitle</title>
+				</item-bbbsub>
+			</item-aaa>
+			<item-aca>
+				<title>aca-title</title>
+				<tearoff>false</tearoff>
+				<menu>1</menu>
+				<item-acasub1>
+					<title>acasub1</title>
+				</item-acasub1>
+				<item-acasub2>
+					<title>acasub2</title>
+				</item-acasub2>
+			</item-aca>
+		</bean>
+	</widget>
+</div>

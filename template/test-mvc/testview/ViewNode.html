@@ -1,0 +1,54 @@
+<h2>ViewNode</h2>
+<style>
+.testMenu{
+	width:100px;
+}
+</style>
+
+<table>
+	<tr>
+		<th>&lt;view/></th>
+		<th>&lt;widget/></th>
+		<th>&lt;views/></th>
+		<th>&lt;menu/></th>
+		<th>&lt;model:foreach/></th>
+		<th>&lt;model:data/></th>
+		<th>&lt;data/></th>
+		<th>&lt;msqueue/></th>
+		<th>&lt;view:msqueue/></th>
+		<th>&lt;widget:msqueue/></th>
+	</tr>
+	<tbody>
+	<tr>
+		<td><view name="createView3"/></td>
+		<td><widget id="test_widget"/></td>
+		<td><views/></td>
+		<td>
+			<div class="testMenu">
+				<widget id='testMenu' attr.showDepths='4'>
+				</widget>
+			</div>
+		</td>
+		<td>
+			<model:foreach>
+				{=$theModel['author']}
+			</model:foreach>
+		</td>
+		<td>
+			<model:data name="author"/>		
+		</td>
+		<td>
+			<data name="author"/>
+		</td>
+		<td>
+			<msgqueue/>
+		</td>
+		<td>
+			<view:msgqueue/>
+		</td>
+		<td>
+			<widget:msgqueue id="test_widget"/>
+		</td>
+	</tr>
+	</tbody>
+</table>

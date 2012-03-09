@@ -1,0 +1,15 @@
+<h2>子控制器作者</h2>
+<table>
+	<tr>
+		<th>aid</th>
+		<th>作者姓名</th>
+	</tr>
+	<tbody>
+		<model:foreach>
+			<tr>
+				<td>{=$theModel['aid']}</td>
+				<td>{=$theModel['author']}</td>
+			</tr>
+		</model:foreach>
+	</tbody>
+</table>

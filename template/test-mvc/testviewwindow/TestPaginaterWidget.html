@@ -1,0 +1,16 @@
+<h2>分页控件</h2>
+<table>
+	<tr>
+		<th>aid</th>
+		<th>title</th>
+	</tr>
+	<tbody>
+	<model:foreach>
+		<tr>
+			<td>{=$theModel['aid']}</td>
+			<td>{=$theModel['title']}</td>
+		</tr>
+	</model:foreach>
+	</tbody>
+</table>
+<widget id="paginator" attr.strategy="middle" attr.showFirst="1" attr.showLast="1" attr.showTotal="1" attr.showPre="1" attr.showNext="1" />
