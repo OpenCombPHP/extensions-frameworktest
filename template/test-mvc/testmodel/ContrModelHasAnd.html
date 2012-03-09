@@ -1,1 +1,18 @@
 <h2>BeanModel</h2>
+<table>
+	<tr>
+		<th>书名</th>
+		<th>出版社</th>
+	</tr>
+	<tbody>
+		<foreach for="$arrBookInfo" key="skey" item="items">
+				<tr>
+					<foreach for="$items" key="skey1" item="item1">
+						<td>
+							{=$item1}
+						</td>
+					</foreach>
+				</tr>
+		</foreach>
+	</tbody>
+</table>

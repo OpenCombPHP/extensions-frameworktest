@@ -8,37 +8,13 @@ use org\jecat\framework\mvc\model\db\orm\Prototype;
 use org\jecat\framework\verifier\Length;
 use org\jecat\framework\mvc\view\DataExchanger;
 use org\jecat\framework\mvc\model\db\Model;
-
 use org\opencomb\platform\ext\Extension;
 use org\opencomb\oauth\adapter\AdapterManager;
 use org\opencomb\coresystem\mvc\controller\ControlPanel;
 
 /**
- * @wiki /MVC模式/模型/测试模型
- *
- * {|
- *  !用例说明
- *  !功能
- *  |---
- *  |本用例为hasAndBelongsToMany型关系,有fromkeys，tobridgekeys，frombridgekeys，tokeys，bridge等属性
- *  |如果说有三个表，作者，桥接，作品三个表。fromkeys为作者的aid并与tobridgekeys的aid进行关联，当然这里，桥接表的frombridgekeys与作品的bid进行关联
- *  |---
- *  !测试目的
- *  !操作过程
- *  !期待值
- *  !实际结果
- *  !说明
- *  |---
- *  |测试createBean创建model的功能,原型为hasAndBelongsToMany
- *  |createbean创建model，{=$theModel}显示model
- *  |显示出所有的作者
- *  |可以实现
- *  |hasAndBelongsToMany关系为多对多,
- *  |}
- */
-/**
- * @example /MVC模式/模型/测试模型/自定义测试:name[1]
- *
+ * @example /MVC模式/数据库模型/数据表关联/hasAndBelongsToMany(Bean)
+ *	Bean方式创建hasAndBelongsToMany关系
  *
  */
 
@@ -47,7 +23,7 @@ class ContrModelHasAnd extends ControlPanel
 	public function createBeanConfig()
 	{
 		return array(
-			'title'=> '文章内容',
+			'title'=> '作者作品',
 			'view:contrlModelHasAnd'=>array(
 				'template'=>'test-mvc/testmodel/ContrModelHasAnd.html',
 				'class'=>'view',
@@ -56,24 +32,38 @@ class ContrModelHasAnd extends ControlPanel
 			'model:author' => array (
 					'class' => 'model', 
 					'orm' => array (
+							//起始表
 							'table' => 'author', 
 							'hasAndBelongsToMany:book' => array (
+									//起始表字段名
 									'fromkeys' => array ('aid' ), 
+									//指定桥接表字段名
 									'tobridgekeys' => array ('aid' ), 
+									//起始桥接表字段名
 									'frombridgekeys' => 'bid', 
+									//指定目标表字段名
 									'tokeys' => 'bid', 
-									'table' => 'book', 
+									//指定目标表
+									'table' => 'book',
+									//桥接表 
 									'bridge' => 'bridge', 
-									)
 							)
+					)
 			),
 		);
 	}
 	
 	public function process()
 	{
-		$this->modelAuthor->setData('aid',66);
-		$this->modelAuthor->save();
+		$this->modelAuthor->load();
+		$arrBookInfo=array();
+		//获得bookmodel
+		foreach($this->modelAuthor->child('book')->childIterator() as $aBookModel)
+		{
+			
+			$arrBookInfo[$aBookModel->data('bid')]=array($aBookModel->data('bookname'),$aBookModel->data('publish'));
+		}
+		$this->viewContrlModelHasAnd->variables()->set('arrBookInfo',$arrBookInfo);
 	}	
 }
 ?>

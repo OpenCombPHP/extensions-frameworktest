@@ -7,39 +7,9 @@ use org\jecat\framework\mvc\model\IModel;
 use org\jecat\framework\mvc\model\db\orm\Prototype;
 use org\jecat\framework\mvc\model\db\Model;
 use org\jecat\framework\verifier\Length;
-
 use org\opencomb\platform\ext\Extension;
 use org\opencomb\oauth\adapter\AdapterManager;
 use org\opencomb\coresystem\mvc\controller\ControlPanel;
-
-/**
- * @wiki /MVC模式/模型/测试模型
- *
- * {|
- *  !用例说明
- *  !功能
- *  |---
- *  |本用例是完成作者信息的更新操作
- *  |model的save方法其实是两个方法的集合，一个是insert一个update，当进行save的时候，系统会判断是使用update或者是insert.
- *  |---
- *  !测试目的
- *  !操作过程
- *  !期待值
- *  !实际结果
- *  !说明
- *  |---
- *  |测试模型的update功能,
- *  |当点击作者名字的时候，进入编辑画面对作者进行编辑
- *  |作者信息的编辑成功
- *  |可以实现
- *  |
- *  |}
- */
-/**
- * @example /MVC模式/模型/测试模型/自定义测试:name[1]
- *
- *
- */
 
 class SaveUpdate extends ControlPanel
 {
@@ -80,6 +50,12 @@ class SaveUpdate extends ControlPanel
 			$this->viewBeLongsToSaveUpdate->widget('aid')->setValue($this->params->get('aid2'));
 		}
 		
+		/**
+		 * @example /MVC模式/数据库模型/模型的基本操作(新建、保存、删除、加载)/保存(update)
+		 * @forwiki /MVC模式/数据库模型/模型的基本操作(新建、保存、删除、加载)/保存(update)
+		 * 以下为数据的保存update代码
+		 *
+		 */
 		
 		if ($this->viewBeLongsToSaveUpdate->isSubmit ( $this->params ))
 		{
@@ -89,9 +65,13 @@ class SaveUpdate extends ControlPanel
 			$sJiguan = $this->viewBeLongsToSaveUpdate->widget('jiguan')->value();
 			$aProtoType = Prototype::create("frameworktest_authorinfo");
 			$aModel = new Model($aProtoType,false);
+			//这里对数据进行了加载
+			//制定要更新的数据
 			$aModel->load(array($nAid),array('aid'));
+			//更新数据
 			$aModel->setData('sex',$sSex);
 			$aModel->setData('jiguan',$sJiguan);
+			//保存数据
 			$aModel->save();
 		}
 	}

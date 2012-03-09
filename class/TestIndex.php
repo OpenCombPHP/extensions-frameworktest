@@ -58,7 +58,6 @@ use org\jecat\framework\message\Message;
  * 			列表中新增模型
  * 		数据表关联(hasOne,hasMany,belongsTo,hasAndBelongsToMany)
  * 		不用Bean构建模型
- * 		模型组合的关系
  * 		模型的原型
  * 		原型的映射
  * 	视图

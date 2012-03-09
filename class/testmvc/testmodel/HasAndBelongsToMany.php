@@ -8,43 +8,20 @@ use org\jecat\framework\mvc\model\IModel;
 use org\jecat\framework\mvc\model\db\orm\Prototype;
 use org\jecat\framework\mvc\model\db\Model;
 
-/**
- * @wiki /MVC模式/模型/测试模型
- *
- * {|
- *  !用例说明
- *  !模型创建方式
- *  |---
- *  |hasAndBelongsToMany本用例通过作者的唯一表示aid来查看作者的所有作品，一个作品呢又会有多个作者。
- *  |通过对原型的创建，来直接创建model
- *  |---
- *  !测试目的
- *  !操作过程
- *  !期待值
- *  !实际结果
- *  !说明
- *  |---
- *  |原型的多对多的关系的创建否成功，是否可以建立model
- *  |1.建立一对一的原型模式，2.用原型创建model
- *  |1，2都可以实现
- *  |1，2都可以实现
- *  |
- *  |}
- */
-/**
- * @example /MVC模式/模型/测试模型/自定义测试:name[1]
- *
- *
- */
-
 class HasAndBelongsToMany extends ControlPanel
 {
+	/**
+	 * @example /MVC模式/视图/表单视图
+	 * 
+	 */
+	
 	public function createBeanConfig()
 	{
 		return array(
 			'title'=> '文章内容',
 			'view:HasAnd'=>array(
 				'template'=>'test-mvc/testmodel/HasAndBelongsToMany.html',
+				//表单视图from
 				'class'=>'form',
 				'widgets'=>array(
 						array(
@@ -59,11 +36,17 @@ class HasAndBelongsToMany extends ControlPanel
 	
 	public function process()
 	{
+		/**
+		 * @example /MVC模式/数据库模型/数据表原型
+		 *  原型创建
+		 */
 		
 		if($this->params->get('aid2'))
 		{
 			$nAid2 = $this->params['aid2'];
+			//创建原型
 			$aPrototype =  Prototype::create ( "frameworktest_author");
+			//建立hasAhasAndBelongsToMany关系
 			$aPrototype->hasAndBelongsToMany("frameworktest_book","frameworktest_bridge","aid","aid","bid","bid");
 			$aModel = new Model($aPrototype);
 			$aModel->load(array($nAid2),array('aid'));
@@ -84,10 +67,25 @@ class HasAndBelongsToMany extends ControlPanel
 			$this->viewHasAnd->variables()->set('comment',$arrComment);
 			
 		}
+		
+		/**
+		 * @example /MVC模式/数据库模型/数据表关联/hasAndBelongsToMany(原型)
+		 *	原型方式创建hasAndBelongsToMany关系
+		 *
+		 */
+		
+		/**
+		 * @example /MVC模式/数据库模型/模型列表(ModelList)
+		 * @forwiki /MVC模式/数据库模型/模型列表(ModelList)
+		 *	ModelList遍历
+		 *
+		 */
+		
 		if ($this->viewHasAnd->isSubmit ( $this->params ))
 		{
 			$nAid = $this->params['aid'];
 			$aPrototype =  Prototype::create ( "frameworktest_author");
+			//原型方式创建hasAndBelongsToMany关系
 			$aPrototype->hasAndBelongsToMany("frameworktest_book","frameworktest_bridge","aid","aid","bid","bid");
 			$aModel = new Model($aPrototype);
 			$aModel->load(array($nAid),array('aid'));
@@ -99,6 +97,7 @@ class HasAndBelongsToMany extends ControlPanel
 			$this->viewHasAnd->variables()->set('aid',$aModel->data('aid'));
 			
 			$arrBookModel=array();
+			//modelframeworktest_book则是一个modellist，通过迭代器Iterator，遍历出其子model
 			foreach($aModel->child('frameworktest_book')->childIterator() as $aBookModel)
 			{	
 				$arrBookModel[$aBookModel->data('bid')]=array($aBookModel->data('bookname'),$aBookModel->data('publish'));

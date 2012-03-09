@@ -1,12 +1,17 @@
-<h2>HasOneCase</h2><br/>
-<h>输入ID查看作者信息<h/><br/>
-<form method="post">
-
-	作者id:<widget id="aid"/><br/>
-	<input type="submit" name="submit" value="提交"/>
-
-</form>
-<br/>
-<foreach for="$hasOne" key='sKeyPath' item='arrcItemList'>
-			{=$arrcItemList}
-</foreach>
+<h2>BeanModel</h2>
+<table>
+	<tr>
+		<th>类别编号</th>
+		<th>类别名称</th>
+		<th>书名</th>
+	</tr>
+	<tbody>
+	<tr>
+		<foreach for="$arrBooks" as key='key' item='item'>
+					<th>{=$item['bookname']}</th>
+					<th>{=$item['price']}</th>
+					<th>{=$item['publish']}</th>
+		</foreach>
+	</tr>
+	</tbody>
+</table>

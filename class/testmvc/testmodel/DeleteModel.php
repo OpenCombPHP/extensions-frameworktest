@@ -7,41 +7,9 @@ use org\jecat\framework\mvc\model\IModel;
 use org\jecat\framework\mvc\model\db\orm\Prototype;
 use org\jecat\framework\mvc\model\db\Model;
 use org\jecat\framework\verifier\Length;
-
 use org\opencomb\platform\ext\Extension;
 use org\opencomb\oauth\adapter\AdapterManager;
 use org\opencomb\coresystem\mvc\controller\ControlPanel;
-
-/**
- * @wiki /MVC模式/模型/测试模型
- *
- * {|
- *  !实现方式
- *  !功能
- *  |---
- *  |纯原型创建model实现方式，这里有别于用createbean创建的方式。
- *  |model的save方法其实是两个方法的集合，一个是insert一个update，当进行save的时候，系统会判断是使用update或者是insert.
- *  |---
- *  !测试目的
- *  !操作过程
- *  !期待值
- *  !实际结果
- *  !说明
- *  |---
- *  |测试模型的delete功能,
- *  |删除作者
- *  |删除作者的同时，作者信息被删除
- *  |可以实现
- *  |
- *  |}
- *  
- *  [^]hasOne的关系就在于，当A表和B表建立hasOne关系之后，删除A表，B表也随之被删除，连个表的主键是一对一关联的[/^]
- */
-/**
- * @example /MVC模式/模型/测试模型/自定义测试:name[1]
- *
- *
- */
 
 class DeleteModel extends ControlPanel
 {
@@ -76,6 +44,12 @@ class DeleteModel extends ControlPanel
 	
 	public function process()
 	{
+		/**
+		 * @example /MVC模式/数据库模型/模型的基本操作(新建、保存、删除、加载)/删除
+		 * @forwiki
+		 *	以下为数据的删除操作
+		 *
+		 */
 		
 		if($this->params->get('aid3'))
 		{
@@ -83,7 +57,9 @@ class DeleteModel extends ControlPanel
 			$aProtoType = Prototype::create("frameworktest_author");
 			$aProtoType->hasOne("frameworktest_authorinfo","aid","aid");
 			$aModel = new Model($aProtoType);
+			//查找要删除的数据行
 			$aModel->load(array($nAid3),array('aid'));
+			//删除数据
 			$aModel->delete();
 		}
 	}

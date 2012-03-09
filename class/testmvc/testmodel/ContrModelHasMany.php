@@ -8,42 +8,18 @@ use org\jecat\framework\mvc\model\db\orm\Prototype;
 use org\jecat\framework\verifier\Length;
 use org\jecat\framework\mvc\view\DataExchanger;
 use org\jecat\framework\mvc\model\db\Model;
-
 use org\opencomb\platform\ext\Extension;
 use org\opencomb\oauth\adapter\AdapterManager;
 use org\opencomb\coresystem\mvc\controller\ControlPanel;
 
-/**
- * @wiki /MVC模式/模型/测试模型
- *
- * {|
- *  !用例说明
- *  !功能
- *  |---
- *  |一种类型可以有很多本书，本用例通国一对多的关系，显示出一个类型的所有书籍的名字和作者
- *  |hasMany可以实现一对多的表关系
- *  |---
- *  !测试目的
- *  !操作过程
- *  !期待值
- *  !实际结果
- *  !说明
- *  |---
- *  |测试createBean创建model的功能
- *  |createbean创建model，现实
- *  |显示出所有的作者
- *  |可以实现
- *  |
- *  |}
- */
-/**
- * @example /MVC模式/模型/测试模型/自定义测试:name[1]
- *
- *
- */
-
 class ContrModelHasMany extends ControlPanel
 {
+	/**
+	 * @example /MVC模式/数据库模型/数据表关联/hasMany(Bean)
+	 *	Bean方式创建hasMany关系
+	 *
+	 */
+	
 	public function createBeanConfig()
 	{
 		return array(
@@ -57,6 +33,7 @@ class ContrModelHasMany extends ControlPanel
 				'class'=>'model',
 				'orm'=>array(
 					'table'=>'booktype',
+					//建立hasMany关系			
 					'hasMany:book'=>array(
 					'fromkeys'=>'tid',
 					'tokeys'=>'tid',

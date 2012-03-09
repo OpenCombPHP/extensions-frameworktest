@@ -7,39 +7,9 @@ use org\jecat\framework\mvc\model\IModel;
 use org\jecat\framework\mvc\model\db\orm\Prototype;
 use org\jecat\framework\mvc\model\db\Model;
 use org\jecat\framework\verifier\Length;
-
 use org\opencomb\platform\ext\Extension;
 use org\opencomb\oauth\adapter\AdapterManager;
 use org\opencomb\coresystem\mvc\controller\ControlPanel;
-
-/**
- * @wiki /MVC模式/模型/测试模型
- *
- * {|
- *  !用例说明
- *  !功能
- *  |---
- *  |本用例将insert，update，delete三种方法放在一个模版下进行实现，通过输入新建作者，编辑作者，删除作者来实现。
- *  |model的save方法其实是两个方法的集合，一个是insert一个update，当进行save的时候，系统会判断是使用update或者是insert.
- *  |---
- *  !测试目的
- *  !操作过程
- *  !期待值
- *  !实际结果
- *  !说明
- *  |---
- *  |测试模型的insert功能,
- *  |向author表插入一个新的作者
- *  |当输入作者名字的时候，可以返回作者名字和作者的id
- *  |可以实现
- *  |
- *  |}
- */
-/**
- * @example /MVC模式/模型/测试模型/自定义测试:name[1]
- *
- *
- */
 
 class SaveInsert extends ControlPanel
 {
@@ -69,13 +39,22 @@ class SaveInsert extends ControlPanel
 	public function process()
 	{
 		
+		/**
+		 * @example /MVC模式/数据库模型/模型的基本操作(新建、保存、删除、加载)/保存(insert)
+		 * @forwiki /MVC模式/数据库模型/模型的基本操作(新建、保存、删除、加载)/保存(insert)
+		 * 以下为数据的保存insert的实现
+		 *
+		 */
 		if ($this->viewBeLongsToSaveInsert->isSubmit ( $this->params ))
 		{
 			$sName = $this->params['name'];
 			$aProtoType = Prototype::create("frameworktest_author");
 			$aProtoType->hasOne("frameworktest_authorinfo",array('aid','author'),array('aid','author'));
 			$aModel = new Model($aProtoType,false);
+			//插入数据
 			$aModel->setData('author',$sName);
+			//这里模型没有被加载(load)过
+			//保存数据
 			$aModel->save();
 			
 		}

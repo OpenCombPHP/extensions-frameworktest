@@ -24,7 +24,7 @@ class MainMenuAspect
 	{
 		// 调用原始原始函数
 		$arrConfig = aop_call_origin() ;
-		$arrConfig['frameview:frameView']['widget:mainMenu']['items']['development']['menu']['items']['test']=array(
+		$arrConfig['frameview:frameView']['widget:mainMenu']['item:development']['item:test']=array(
 																		'title' => '测试中心',
 																		'link' => '?c=org.opencomb.frameworktest.TestIndex',
 																		'query' => array(
