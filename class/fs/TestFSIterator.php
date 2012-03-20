@@ -2,7 +2,7 @@
 namespace org\opencomb\frameworktest\fs ;
 
 use org\opencomb\coresystem\mvc\controller\ControlPanel ;
-use org\jecat\framework\fs\FileSystem;
+use org\jecat\framework\fs\Folder;
 use org\jecat\framework\fs\FSIterator ;
 
 class TestFSIterator extends ControlPanel
@@ -22,7 +22,7 @@ class TestFSIterator extends ControlPanel
 	 */
 	public function process(){
 		// 得到 FileSystem 对象
-		$aFileSystem = FileSystem::singleton() ;
+		$aFileSystem = Folder::singleton() ;
 		// 本例从 /settings 开始迭代
 		$aFolder = $aFileSystem->findFolder('/settings');
 		
