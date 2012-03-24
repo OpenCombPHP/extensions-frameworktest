@@ -107,7 +107,7 @@ class TestIndex extends ControlPanel
 	public function createBeanConfig()
 	{		
 		$arrBean = array(
-			'view:advertisementSetting' => array(
+			'view' => array(
 					'template' => 'TestIndex.html' ,
 					'class' => 'view' 
 					),
@@ -116,14 +116,5 @@ class TestIndex extends ControlPanel
 	}
 	
 	public function process()
-	{	
-		$aSetting = Extension::flyweight('advertisement')->setting();
-		$akey=$aSetting->key('/'.'advertis',true);
-		$aSingle=$aSetting->itemIterator('/'.'advertis');
-		$arrAdvertisement=array();
-		foreach ($aSingle as $key=>$value) {
-			$arrAdvertisement[]=$akey->item($value,array());
-		}
-		$this->viewAdvertisementSetting->variables()->set('arrAdvertisement',$arrAdvertisement);
-	}
+	{}
 }
