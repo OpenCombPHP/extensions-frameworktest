@@ -27,20 +27,20 @@ class TestSelect extends ControlPanel
 						// 以 sql 表达式形式添加返回字段
 						->addColumnsExpr("price*discount as payPrice, round(words/pages) as wordsPerPage")
 						
-						->setLimit(0,30)
-						->addOrderBy('price')
+						->setLimit(30,0)
+						->addOrderBy('price') ;
 						
-						->where()->add() ;
+						//->where()->add() ;
 		
 		
 		// --------------
 		// 用字符串格式 sql 创建一个 Select 对象 
-		$aSelectB = SQL::make("select bookname, category, publish, price as oriPrice, ISBN as isbn, price*discount as payPrice, round(words/pages) as wordsPerPage
+		$aSelectB = SQL::make("select bookname, `category`, `publish`, price as oriPrice, ISBN as isbn, price*discount as payPrice, round(words/pages) as wordsPerPage
 									from frameworktest:book
 									order by price asc
 									limit 0, 30 ;") ;
-		// 打印 select 对象， $aSelectA 和 $aSelectB 的内容一样，但是通过 SQL::make() 函数从一个自由书写的sql创建对象，效率要低于直接创建的对象
-		echo $aSelectA, $aSelectB ;
+		// 打印 select 对象， $aSelectA 和 $aSelectB 的内容一样，但是通过 SQL::make() 函数从一个自由书写的sql语句创建对象，效率要低于直接创建的对象
+		echo $aSelectA, '<br />', $aSelectB, '<br />' ;
 		
 		
 		// --------------
@@ -49,9 +49,9 @@ class TestSelect extends ControlPanel
 		$aSelectA->joinTable('b','frameworktest:bookcomment',null,'bid','bc','INNERT') ;
 		
 		// 在 $aSelectB 对象上以表达式形式添加关联表
-		$aSelectB->joinTableExpr('b',"inner join frameworktest:bookcomment as bc using(bid)") ;
+		//$aSelectB->joinTableExpr('b',"inner join frameworktest:bookcomment as bc using(bid)") ;
 		
-		echo $aSelectA, $aSelectB ;
+		echo $aSelectA, '<br />', $aSelectB, '<br />' ;
 		
 	}
 }
