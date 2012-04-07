@@ -13,10 +13,11 @@ class TestSQLParser extends ControlPanel
 	{
 		$aParser = BaseParserFactory::singleton()->create() ;
 
+		$arrSqls[] = " update some_table as t1, some_table as t2 set t1.id=123, t2.username='xiaoxiao', t2.view = t2.view+1 ;" ;
 		$arrSqls[] = " insert into some_table (id,name,title) values (12,'alee','niubi'), (select * from table) ;" ;
 		$arrSqls[] = "select * from tablename join table_a on (c.dd=b.dd) left join ss where 1 limit 0, 30" ;
 		$arrSqls[] = " insert into some_table set id=123, username='xiaoxiao' ;" ;
-		$arrSqls[] = " update some_table as t1, some_table as t2 set t1.id=123, t2.username='xiaoxiao', t2.view = t2.view+1 ;" ;
+		
 		
 		$arrSqls[] = "select bookname, category, publish, price as oriPrice, ISBN as isbn, price*discount as payPrice, round(words/pages) as wordsPerPage
                                     from frameworktest:book
