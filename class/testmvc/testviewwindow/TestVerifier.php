@@ -41,7 +41,7 @@ class TestVerifier extends ControlPanel
 							 		'id'=>'test_fileext',
 							 		'class'=>'file',
 							 		'type'=>'folder',
-							 		'folder'=>Extension::flyWeight('frameworktest')->publicFolder()->path().'/frameworktest_img',
+							 		'folder'=>Extension::flyWeight('frameworktest')->filesFolder()->path().'/frameworktest_img',
 							 		'title'=>'文件扩展名验证',
 							 		'verifier:extname'=>array(
 							 				'exts'=>array('dd','ee'),
@@ -54,7 +54,7 @@ class TestVerifier extends ControlPanel
 									'id'=>'test_filesize',
 									'class'=>'file',
 									'type'=>'folder',
-									'folder'=>Extension::flyWeight('frameworktest')->publicFolder()->path().'/frameworktest_img',
+									'folder'=>Extension::flyWeight('frameworktest')->filesFolder()->path().'/frameworktest_img',
 									'title'=>'文件大小验证',
 									'verifier:filesize'=>array(
 											'nMaxSize'=>100,
@@ -66,7 +66,7 @@ class TestVerifier extends ControlPanel
 									'id'=>'test_imageArea',
 									'class'=>'file',
 									'type'=>'folder',
-									'folder'=>Extension::flyWeight('frameworktest')->publicFolder()->path().'/frameworktest_img',
+									'folder'=>Extension::flyWeight('frameworktest')->filesFolder()->path().'/frameworktest_img',
 									'title'=>'图片大小验证',
 									'verifier:imagearea'=>array(
 											'max'=>100,
@@ -82,7 +82,7 @@ class TestVerifier extends ControlPanel
 											'maxHeight'=>20,
 											'minWidth'=>20,
 											'minHeight'=>20,
-									),on::flyWeight('frameworktest')->publicFolder()->path().'/frameworktest_img',
+									),on::flyWeight('frameworktest')->filesFolder()->path().'/frameworktest_img',
 									'title'=>'图片大小验证',
 									'verifier:imagesize'=>array(
 											'maxWidth'=>100,
