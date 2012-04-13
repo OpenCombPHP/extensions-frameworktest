@@ -13,6 +13,26 @@ class TestSQLParser extends ControlPanel
 	{
 		$aParser = BaseParserFactory::singleton()->create() ;
 
+		// , array("3","yyyyyyyyyy","","3","4")
+		$arrSqls[] = "REPLACE INTO `oc3_opencms_category` (`cid`,`title`,`description`,`lft`,`rgt`) VALUES (@1 , @2 , @3,@4,@5) " ;
+		
+		$arrSqls[] = "DROP TABLE `opencms_article` ;" ;
+		
+		$arrSqls[] = "CREATE TABLE `opencms_article` (
+  `aid` int(10) NOT NULL AUTO_INCREMENT,
+  `from` varchar(60) NOT NULL COMMENT '来源',
+  `cid` int(8) NOT NULL,
+  `title` varchar(120) NOT NULL,
+  `summary` varchar(255) NOT NULL,
+  `text` text NOT NULL,
+  `createTime` int(10) NOT NULL,
+  `author` int(10) NOT NULL,
+  `views` int(8) NOT NULL DEFAULT '0' COMMENT '浏览次数',
+  `recommend` int(2) NOT NULL COMMENT '推荐星级, 0-10',
+  PRIMARY KEY (`aid`),
+  KEY `cid` (`cid`)
+) ENGINE=MyISAM AUTO_INCREMENT=56 DEFAULT CHARSET=utf8" ;
+		
 		$arrSqls[] = " delete from table1 as t1 join table2 as t2 using (clm) where t1.id=12 ;" ;
 		$arrSqls[] = " insert into some_table (id,name,title) values (12,'alee','niubi'), (select * from table) ;" ;
 		$arrSqls[] = "select * from tablename join table_a on (c.dd=b.dd) left join ss where 1 limit 0, 30" ;
