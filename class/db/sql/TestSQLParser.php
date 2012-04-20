@@ -13,7 +13,15 @@ class TestSQLParser extends ControlPanel
 	{
 		$aParser = BaseParserFactory::singleton()->create() ;
 
-		// , array("3","yyyyyyyyyy","","3","4")
+		// , array("3","yyyyyyyyyy","","3","4")		
+		$arrSqls[] = "SHOW TABLES" ;
+		
+		$arrSqls[] = "insert into `coresystem_group` (gid,name,lft,rgt) values (0,'系统管理员组',1,2)" ;
+		
+		$arrSqls[] = "CREATE TABLE IF NOT EXISTS `oc3_coresystem_user` ( `uid` INT ( 10 ) NOT NULL AUTO_INCREMENT , `username` VARCHAR ( 60 ) NOT NULL , `password` VARCHAR ( 32 ) CHARACTER SET latin1 NOT NULL , `lastLoginTime` INT ( 10 ) NOT NULL , `lastLoginIp` VARCHAR ( 15 ) CHARACTER SET latin1 NOT NULL , `registerTime` INT ( 10 ) NOT NULL , `registerIp` VARCHAR ( 15 ) CHARACTER SET latin1 NOT NULL , `activeTime` INT ( 10 ) NOT NULL , `activeIp` VARCHAR ( 15 ) CHARACTER SET latin1 NOT NULL , PRIMARY KEY ( `uid` ) , UNIQUE KEY `username` ( `username` ) ) ENGINE = MyISAM AUTO_INCREMENT = 0 DEFAULT CHARSET = utf8" ;
+
+		$arrSqls[] = "SHOW CREATE TABLE `opencms_article`" ;
+
 		$arrSqls[] = "REPLACE INTO `oc3_opencms_category` (`cid`,`title`,`description`,`lft`,`rgt`) VALUES (@1 , @2 , @3,@4,@5) " ;
 		
 		$arrSqls[] = "DROP TABLE `opencms_article` ;" ;
