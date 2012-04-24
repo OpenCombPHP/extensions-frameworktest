@@ -2,9 +2,6 @@
 namespace org\opencomb\frameworktest\testmvc\testmodel ;
 
 use org\opencomb\coresystem\mvc\controller\ControlPanel;
-use org\jecat\framework\mvc\model\db\Category;
-use org\jecat\framework\message\Message;
-use org\jecat\framework\mvc\model\IModel;
 use org\jecat\framework\mvc\model\db\orm\Prototype;
 use org\jecat\framework\mvc\model\db\Model;
 
@@ -121,4 +118,3 @@ class HasAndBelongsToMany extends ControlPanel
 		}
 	}
 }
-?>

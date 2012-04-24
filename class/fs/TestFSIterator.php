@@ -1,9 +1,9 @@
 <?php
 namespace org\opencomb\frameworktest\fs ;
 
-use org\opencomb\coresystem\mvc\controller\ControlPanel ;
+use org\opencomb\coresystem\mvc\controller\ControlPanel;
 use org\jecat\framework\fs\Folder;
-use org\jecat\framework\fs\FSIterator ;
+use org\jecat\framework\fs\FSIterator;
 
 class TestFSIterator extends ControlPanel
 {
@@ -51,3 +51,4 @@ class TestFSIterator extends ControlPanel
 		$this->view->variables()->set('returnRelativeIterator',$aReturnRelativeIterator);
 	}
 }
+

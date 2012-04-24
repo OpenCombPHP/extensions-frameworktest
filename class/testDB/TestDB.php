@@ -1,9 +1,7 @@
 <?php 
 namespace org\opencomb\frameworktest\testDB ;
 
-use org\opencomb\platform\ext\Extension;
 use org\opencomb\coresystem\mvc\controller\ControlPanel;
-use org\jecat\framework\message\Message;
 
 class TestDB extends ControlPanel
 {
@@ -22,3 +20,4 @@ class TestDB extends ControlPanel
 	{	
 	}
 }
+

@@ -1,13 +1,7 @@
 <?php
 namespace org\opencomb\frameworktest\testtemplate\macro;
 
-use org\jecat\framework\verifier\Length;
-
-use org\opencomb\platform\ext\Extension;
-use org\opencomb\oauth\adapter\AdapterManager;
 use org\opencomb\coresystem\mvc\controller\ControlPanel;
-use org\jecat\framework\message\Message;
-use org\opencomb\advertisement\Advertisement;
 
 class TestMacro extends ControlPanel
 {
@@ -35,3 +29,4 @@ class TestMacro extends ControlPanel
 		$this->viewTestMacro->variables()->set('sPrint',$sPrint);
 	}
 }
+

@@ -2,7 +2,6 @@
 namespace org\opencomb\frameworktest\db\sql ;
 
 use org\jecat\framework\db\sql\parser\BaseParserFactory;
-use org\jecat\framework\db\sql\SQL;
 use org\opencomb\coresystem\mvc\controller\ControlPanel;
 
 class TestSQLParser extends ControlPanel
@@ -75,3 +74,4 @@ class TestSQLParser extends ControlPanel
 		}
 	}
 }
+

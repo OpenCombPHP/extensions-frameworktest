@@ -1,13 +1,10 @@
 <?php 
 namespace org\opencomb\frameworktest\testDB\testquery;
 
-use org\opencomb\platform\ext\Extension;
 use org\opencomb\coresystem\mvc\controller\ControlPanel;
-use org\jecat\framework\message\Message;
 use org\jecat\framework\db\DB;
 use org\jecat\framework\db\sql\Restriction;
 use org\jecat\framework\db\sql\Criteria;
-use org\jecat\framework\db\sql\Table;
 use org\jecat\framework\db\sql\Select;
 use org\jecat\framework\db\sql\StatementState;
 
@@ -65,3 +62,4 @@ class TestSelectWhere extends ControlPanel
 		
 	}
 }
+

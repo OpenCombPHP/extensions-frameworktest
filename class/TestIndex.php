@@ -1,12 +1,7 @@
 <?php 
 namespace org\opencomb\frameworktest ;
 
-use org\jecat\framework\verifier\Length;
-
-use org\opencomb\platform\ext\Extension;
-use org\opencomb\oauth\adapter\AdapterManager;
 use org\opencomb\coresystem\mvc\controller\ControlPanel;
-use org\jecat\framework\message\Message;
 
 /**
  * 文件系统
@@ -118,3 +113,4 @@ class TestIndex extends ControlPanel
 	public function process()
 	{}
 }
+

@@ -1,15 +1,6 @@
 <?php
 namespace org\opencomb\frameworktest\testmvc\testmodel ;
 
-use org\jecat\framework\mvc\model\db\Category;
-use org\jecat\framework\message\Message;
-use org\jecat\framework\mvc\model\IModel;
-use org\jecat\framework\mvc\model\db\orm\Prototype;
-use org\jecat\framework\verifier\Length;
-use org\jecat\framework\mvc\view\DataExchanger;
-use org\jecat\framework\mvc\model\db\Model;
-use org\opencomb\platform\ext\Extension;
-use org\opencomb\oauth\adapter\AdapterManager;
 use org\opencomb\coresystem\mvc\controller\ControlPanel;
 
 class ContrModelHasOne extends ControlPanel
@@ -60,4 +51,3 @@ class ContrModelHasOne extends ControlPanel
 		$this->modelAuthor->printStruct();
 	}	
 }
-?>

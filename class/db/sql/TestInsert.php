@@ -86,3 +86,4 @@ class TestInsert extends ControlPanel
 		
 	}
 }
+

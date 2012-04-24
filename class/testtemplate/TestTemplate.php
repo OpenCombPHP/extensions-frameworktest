@@ -1,12 +1,7 @@
 <?php 
 namespace org\opencomb\frameworktest\testtemplate ;
 
-use org\jecat\framework\verifier\Length;
-
-use org\opencomb\platform\ext\Extension;
-use org\opencomb\oauth\adapter\AdapterManager;
 use org\opencomb\coresystem\mvc\controller\ControlPanel;
-use org\jecat\framework\message\Message;
 
 class TestTemplate extends ControlPanel
 {
@@ -27,3 +22,4 @@ class TestTemplate extends ControlPanel
 		$this->viewTesttemplate->variables()->set('arrAdvertisement',$arrAdvertisement);
 	}
 }
+

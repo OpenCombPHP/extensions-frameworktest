@@ -2,15 +2,7 @@
 namespace org\opencomb\frameworktest;
 
 use org\opencomb\platform\mvc\view\widget\Menu;
-use org\jecat\framework\lang\aop\AOP;
 use org\opencomb\platform\ext\Extension;
-use org\jecat\framework\bean\BeanFactory;
-
-
-
-use org\opencomb\frameworktest\aspect;
-use org\jecat\framework\ui\xhtml\weave\Patch;
-use org\jecat\framework\ui\xhtml\weave\WeaveManager;
 
 class FrameworkTest extends Extension
 {
@@ -41,5 +33,3 @@ class FrameworkTest extends Extension
 		
 	}
 }
-
-?>
