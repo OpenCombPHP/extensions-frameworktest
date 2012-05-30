@@ -1,27 +1,50 @@
 <?php
 namespace org\opencomb\frameworktest\mvc\model ;
 
+use org\jecat\framework\mvc\model\Model;
+
+use org\opencomb\coresystem\mvc\controller\ControlPanel;
+
 class TestInsert extends ControlPanel
 {
 	public function process()
 	{
+	    exit;
+	    
 		// 插入一本书以及一个作者
-		echo '<hr/>' ;
-		mvc\M('frameworktest:book')
-				->hasAndBelongsToMany("frameworktest:author","frameworktest:bridge",'bid','aid')
+		Model::Create('frameworktest:book')
+				->hasAndBelongsToMany('frameworktest:author','frameworktest:book_link_author','bid','bid','aid','aid')
 				->insert(
 					array(
-						'bookname' => 'xxx' ,
-						'price' => 'xxx' ,
-						'author' => array(
-							array(
-								'author.author' => 'alee' ,
-							)
-						)
-					)
+					        array(
+					                'bookname' => 'xxx' ,
+					                'price' => 'xxx' ,
+					                'author' => array(
+					                        array(
+					                                'author.author' => 'alee' ,
+					                        ),
+					                        array(
+					                                'author.author' => 'aaron' ,
+					                        )
+					                )
+					        ),
+					        array(
+					                'bookname' => 'xxx2' ,
+					                'price' => 'xxx' ,
+					                'author' => array(
+					                        array(
+					                                'author.author' => 'alee2' ,
+					                        ),
+					                        array(
+					                                'author.author' => 'aaron2' ,
+					                        )
+					                )
+					        )
+			        )
 				) ;
 		
 		
+		exit;
 		
 		// 一次插入两本书，每本书都有两个作者
 		echo '<hr/>' ;

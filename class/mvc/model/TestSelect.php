@@ -47,13 +47,8 @@ class TestSelect extends ControlPanel
 		*/
 	    
 		$aModel = Model::Create('frameworktest:book')
-		->hasAndBelongsToMany('frameworktest:bookcomment','bid','bid')
-		->where("bookcomment.uid = 1")                        //针对"一对多"进行条件限定
-		->where('publish = "中国文学出版社"')
-		->limit(10,0,'bookcomment')                        //针对"一对多"进行条件限定
+		->hasAndBelongsToMany('frameworktest:authorinfo','frameworktest:book_link_author','bid','bid','aid','aid')
 		->limit(20)
-		->order('bookcomment.time')                        //针对"一对多"进行条件限定
-		->order('time')
 		->load() ;
 		
 		/**
