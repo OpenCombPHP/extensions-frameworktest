@@ -1,25 +1,67 @@
 <?php
 namespace org\opencomb\frameworktest\mvc\model ;
 
+use org\jecat\framework\mvc\model\Model;
+
+use org\jecat\framework\db\DB;
+
+use org\jecat\framework\mvc;
+
+use org\opencomb\coresystem\mvc\controller\ControlPanel;
+
 class TestSelect extends ControlPanel
 {
 	public function process()
 	{
-		$aModel = mvc\M('airticket_contact')
-			->hasOne('coresystem_user','uid',null,'user')
-			->hasMany('coresystem_group_user_link','uid','uid','group','$.user')
-			->assoc(array(
-				'assoc' => 'hasOne' ,
-				'table' => 'hasOne' ,
-				'name' => 'hasOne' ,
-			),'$.user.group')
-			->where('1','$.uid')
-			->order('uid')
-			->group('uid')
-			->limit(1)
-			->load() ;
+	    
+	    
+	    /**
+	     * 单表查询
+	     * @var unknown_type
+	     */
+	    /*
+	    $aModel = Model::Create('frameworktest:book')
+	    ->where('bid = 1')
+	    ->load() ;
+	    
+	    $aModel = Model::Create('frameworktest:book')
+	    ->load("1",'bid') ;
+	    */
+	    
+	    /**
+	     * 多表关联查询
+	     * 此例子为查出某一出版社最新的20本书，包括其作者信息,以及某用户对当前书最新的10条评论。
+	     * @var unknown_type
+	     */
+		/*
+	    $aModel = Model::Create('frameworktest:book')
+		->hasOne('frameworktest:author','tid','aid')
+		->hasMany('frameworktest:bookcomment','bid','bid')
+		->where("bookcomment.uid = 1")                        //针对"一对多"进行条件限定
+		->where('publish = "中国文学出版社"')
+		->limit(10,0,'bookcomment')                        //针对"一对多"进行条件限定
+		->limit(20)
+		->order('bookcomment.time')                        //针对"一对多"进行条件限定
+		->order('time')
+		->load() ;
+		*/
+	    
+		$aModel = Model::Create('frameworktest:book')
+		->hasAndBelongsToMany('frameworktest:bookcomment','bid','bid')
+		->where("bookcomment.uid = 1")                        //针对"一对多"进行条件限定
+		->where('publish = "中国文学出版社"')
+		->limit(10,0,'bookcomment')                        //针对"一对多"进行条件限定
+		->limit(20)
+		->order('bookcomment.time')                        //针对"一对多"进行条件限定
+		->order('time')
+		->load() ;
 		
+		/**
+		 * ->where(array('publish = "中国文学出版社"',"bookcomment.uid = 1"))        支持
+		 */
 		
+		DB::singleton()->executeLog() ;
+		exit;
 		
 		$aModel = mvc\M('airticket:contact')
 		
