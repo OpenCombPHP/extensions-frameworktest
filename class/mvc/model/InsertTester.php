@@ -5,7 +5,7 @@ use org\jecat\framework\mvc\model\Model;
 
 use org\opencomb\coresystem\mvc\controller\ControlPanel;
 
-class TestInsert extends ControlPanel
+class InsertTester extends ControlPanel
 {
 	public function process()
 	{

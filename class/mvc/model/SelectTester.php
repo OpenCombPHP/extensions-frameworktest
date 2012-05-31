@@ -9,7 +9,7 @@ use org\jecat\framework\mvc;
 
 use org\opencomb\coresystem\mvc\controller\ControlPanel;
 
-class TestSelect extends ControlPanel
+class UpdateTester extends ControlPanel
 {
 	public function process()
 	{
