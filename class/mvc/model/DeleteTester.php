@@ -10,8 +10,12 @@ class DeleteTester extends ControlPanel
 	public function process()
 	{
 		Model::create('frameworktest:book')
+        		//->hasOne('frameworktest:author','bid','aid')
+        		//->hasMany('frameworktest:bookcomment','bid','bid')
 				->delete(
-					"bid = 2"
+					"frameworktest_book.bid = 2",
+			        'frameworktest_book.bid',
+			        '20'
 				) ;
 		exit;
 	}
