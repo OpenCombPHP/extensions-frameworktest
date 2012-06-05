@@ -5,20 +5,22 @@ use org\jecat\framework\mvc\model\Model;
 
 use org\opencomb\coresystem\mvc\controller\ControlPanel;
 
-class TestUpdate extends ControlPanel
+class UpdateTester extends ControlPanel
 {
 	public function process()
 	{
-		Model::create('frameworktest:book')
-				->hasOne("frameworktest:author")
-				//->hasOne("frameworktest:authorinfo")
+	    /**
+	     * 更新操作
+	     */
+		Model::create('frameworktest:book')                // 表名（必填）
+				->hasOne("frameworktest:author")           // 单表关联
 				->update(
-					array(
+					array(                                // 更新的内容
 						'bookname' => '计算机科学2' ,
 						'price' => '1' ,
-						'`price`=`price`+1' ,		// 表达式
+						'`price`=`price`+1' ,		       // 表达式
 					)
-					, "bid=2"
+					, "bid=2"                              // 条件
 				) ;
 		exit;
 	}
