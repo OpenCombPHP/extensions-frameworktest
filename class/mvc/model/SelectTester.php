@@ -23,6 +23,7 @@ class SelectTester extends ControlPanel
 	     */
 	    
 	    $aModel = Model::Create('frameworktest:book')
+		 ->hasMany('frameworktest:bookcomment','bid','bid')
 	    ->where('tid = 0')                                // 通过方法设置WHERE
 	    ->load() ;
 	    /*
@@ -90,15 +91,22 @@ class SelectTester extends ControlPanel
 		
 	    
 	    // 打印SQL语句
-		//DB::singleton()->executeLog() ;
+		// DB::singleton()->executeLog() ;
 	    
+	    //for($aModel->rewind('bookcomment');$aBookComment=$aModel->current('bookcomment');$aModel->next('bookcomment'))
 	    
 	    /**
 	     * 数据处理
 	     */
-	    echo $aModel->data('bid') ;
-	    while ($aModel->next()){
-	        echo $aModel->data('bid') ;
+	    foreach ($aModel as $key => $value)
+	    {
+	        echo "<pre>";print_r($value['bid']);echo "</pre>";
+	        
+	        //遍历子对象
+	        /*foreach ($value['bookcomment'] as $key2 => $value2)
+	        {
+	            echo "<pre>";print_r($value2);echo "</pre>";
+	        }*/
 	    }
 		
 		exit;
