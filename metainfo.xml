@@ -3,10 +3,13 @@
 
 	<name>frameworktest</name>
 	<version>0.1</version>
-	<title>测试工具</title>
+	<title>框架测试</title>
 	
-	<package folder="/class" namespace="org.opencomb.frameworktest" >
-		</package>
+	<description>
+用于测试 jecat framework 的扩展
+	</description>
+	
+	<package folder="/class" namespace="org.opencomb.frameworktest" ></package>
 	
 	<class>org.opencomb.frameworktest.FrameworkTest</class>
 	
