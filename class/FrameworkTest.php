@@ -1,7 +1,7 @@
 <?php
 namespace org\opencomb\frameworktest;
 
-use org\opencomb\platform\mvc\view\widget\Menu;
+use org\opencomb\coresystem\mvc\controller\ControlPanel;
 use org\opencomb\platform\ext\Extension;
 
 class FrameworkTest extends Extension
@@ -9,14 +9,10 @@ class FrameworkTest extends Extension
 	/**
 	 * 载入扩展
 	 */
-	public function load() {
+	public function load()
+	{
 		// 注册菜单build事件的处理函数
-		Menu::registerBuildHandle(
-				'org\\opencomb\\coresystem\\mvc\\controller\\ControlPanelFrame'
-				, 'frameView'
-				, 'mainMenu'
-				, array(__CLASS__,'buildControlPanelMenu')
-		) ;
+		ControlPanel::registerMenuHandler(array(__CLASS__,'buildControlPanelMenu')) ;
 	}
 	
 	static public function buildControlPanelMenu(array & $arrConfig)
